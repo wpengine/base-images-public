@@ -1,7 +1,7 @@
 # Builds a docker image with the requirements to do kubernetes deploys with Helm
 FROM google/cloud-sdk
 
-ARG helm_version=2.4.2
+ARG helm_version=2.5.1
 
 ADD https://storage.googleapis.com/kubernetes-helm/helm-v$helm_version-linux-amd64.tar.gz /
 
