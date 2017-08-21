@@ -79,4 +79,4 @@ mkdir -p $artifacts_test_dir
 generate_cover_data
 show_cover_report
 
-chmod -r 777 $artifacts_test_dir
+chmod -R 777 $artifacts_test_dir
