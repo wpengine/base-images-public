@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Script to run all of our unit tests for each package,
 # output junit-xml reports, and output coverage reports.
@@ -6,6 +6,9 @@
 
 SCRIPT_NAME=$(basename $0)
 SCRIPT_DESC="Run unit and coverage tests for a go package"
+
+# test return code value
+TEST_RC=0
 
 # Define variable for help text
 read -r -d '' HELP_TEXT <<HELP_BLOCK
@@ -26,7 +29,7 @@ while getopts ":hp:" opt; do
             ;;
         p)
             export package_path="src/$OPTARG" >&2
-	          ;;
+            ;;
         :)
             echo "Option -$OPTARG requires an argument." >&2
             exit 1
@@ -57,6 +60,12 @@ generate_cover_data() {
     go test -v -covermode=$mode -coverprofile=$artifacts_test_dir/$f.cover $package 2>&1 | \
     tee $artifacts_test_dir/temp-$f.out
 
+    # preserve the return code of the test, which is the first step in the above pipeline
+    LAST_RC=${PIPESTATUS[0]}
+    if [[ $LAST_RC != 0 ]] ; then
+        TEST_RC=$LAST_RC
+    fi
+
     # If there were tests, pipe that output into the junit-formatter for jenkins
     if [ -f $artifacts_test_dir/temp-$f.out ]; then
 
@@ -80,3 +89,4 @@ generate_cover_data
 show_cover_report
 
 chmod -R 777 $artifacts_test_dir
+exit $TEST_RC
