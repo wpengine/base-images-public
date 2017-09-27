@@ -77,7 +77,11 @@ generate_cover_data() {
   echo "mode: $mode" > "$profile" # Necessary prefix for coverage report
   grep -h -v "^mode:" "$artifacts_test_dir"/*.cover >> "$profile"
 
-  gocov convert $profile | gocov-xml > $artifacts_test_dir/coverage.xml
+  # gocov-xml uses an outdated url for the dtd. Update it.
+  gocov convert $profile | \
+    gocov-xml | \
+    sed 's%http://cobertura.sourceforge.net/xml/%https://raw.github.com/cobertura/cobertura/master/cobertura/src/site/htdocs/xml/%' > \
+    $artifacts_test_dir/coverage.xml
 }
 
 show_cover_report() {
