@@ -1,10 +1,10 @@
 FROM ruby:alpine
 
-WORKDIR /workspace
+WORKDIR /mdl
 RUN gem install mdl
 
 # Add our custom markdown rules.
-COPY ./markdown /workspace/markdown
-COPY .mdlrc /workspace/
+COPY ./markdown /mdl/markdown
+COPY .mdlrc /mdl/.mdlrc
 
 ENTRYPOINT [ "mdl" ]

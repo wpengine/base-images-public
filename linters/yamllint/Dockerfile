@@ -1,9 +1,10 @@
 FROM python:alpine
 ENV PYTHON_UNBUFFERED 1
 RUN pip install yamllint
-WORKDIR /workspace
+
+WORKDIR /yamllint
 
 # Add our custom yaml rules.
-COPY .yamllintrc /workspace
+COPY .yamllintrc /yamllint
 
-ENTRYPOINT ["yamllint", "-c", ".yamllintrc"]
+ENTRYPOINT [ "yamllint", "-c", "/yamllint/.yamllintrc" ]
