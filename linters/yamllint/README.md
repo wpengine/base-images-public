@@ -1,5 +1,4 @@
-yamllint
-========
+# yamllint
 
 A minimal yamllint image useful for linting yaml files.
 
@@ -20,9 +19,11 @@ docker run --rm -v `pwd`:/workspace wpengine/yamllint file1.yaml file2.yaml
 
 configuration
 =============
-If run from a directory with a .yamllint configuration file, it will be picked up automatically. If you want to provide
-one from a different directory, you can do something like:
+
+If run from a directory with a .yamllint configuration file, it will be picked up automatically by passing mounting
+the directory/file when running. There is already a .yamllint file in the image, so it only needs to be overridden
+to work correctly.
 
 ```
-docker run --rm -v `pwd`:/workspace -v /full/path/to/.yammllint:/myyamllint wpengine/yamllint -c /myyamllint .
+docker run --rm -v `pwd`:/workspace -v /full/path/to/.yammllint:/myyamllint wpengine/yamllint .
 ```
