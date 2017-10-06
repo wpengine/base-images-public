@@ -1,1 +1,3 @@
-# Some images that are just barely more than the base gcloud-sdk image
+# gcloud
+
+Collection of images that are based on the gcloud-sdk image.
