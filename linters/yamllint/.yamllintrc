@@ -1,0 +1,14 @@
+extends: default
+
+rules:
+  # 120 chars is a better standard than the 80 character limit.
+  line-length:
+    max: 120
+  # We really don't care about new lines at the ends of yaml files.
+  new-line-at-end-of-file: disable
+  # Don't need to start the yaml files with ---
+  document-start:
+    present: false
+  # We are fine with having a space buffer between braces and their content.
+  braces:
+    max-spaces-inside: 1
