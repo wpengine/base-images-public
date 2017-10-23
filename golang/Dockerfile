@@ -1,7 +1,7 @@
 FROM golang:1.9
 
 RUN set -ex; \
-    go get -u -v \
+    go get -u -v -t \
         github.com/alecthomas/gometalinter \
         github.com/Masterminds/glide \
         github.com/golang/dep/cmd/dep \
