@@ -2,7 +2,7 @@ FROM alpine:3.6
 
 ENV NR_PORT /tmp/.newrelic.sock
 
-ENV NR_VERSION=7.6.0.201
+ARG NR_VERSION=7.6.0.201
 ENV NR_FILE_NAME=newrelic-php5-$NR_VERSION-linux-musl
 ENV NR_FILE_URL=https://download.newrelic.com/php_agent/archive/$NR_VERSION/$NR_FILE_NAME.tar.gz
 
