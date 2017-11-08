@@ -2,17 +2,22 @@
 @Library('wpshared') _
 
 node('docker') {
-    String  IMAGE_TAG = "${BUILD_NUMBER}.${GIT_COMMIT}"
-
     wpe.pipeline('Giant Meteor') {
-      docker.build('iptables:latest','-f iptables/Dockerfile')
-      dockerRegistry.publishImage {
-        environment = 'development'
-        image = 'iptables:latest'
-      }
-      dockerRegistry.publishImage {
-        environment = 'production'
-        image = 'iptables:latest'
+      String  IMAGE_TAG = "${BUILD_NUMBER}.${GIT_COMMIT}"
+      stage('Publish iptables') {
+        def registries = ['development', 'production']
+        docker.build("iptables:${IMAGE_TAG}","-f iptables/Dockerfile .")
+        sh "docker tag iptables:${IMAGE_TAG} iptables:latest"
+        for (registry in registries) {
+          dockerRegistry.publishImage {
+            environment = registry
+            image = "iptables:latest"
+          }
+          dockerRegistry.publishImage {
+            environment = registry
+            image = "iptables:${IMAGE_TAG}"
+          }
+        }
       }
     }
 }
