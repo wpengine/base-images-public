@@ -1,0 +1,2 @@
+# The fluent/fluentd onbuild source images expect to find a directory named "plugins" in the build context
+# This .gitignore file can be removed in the event we include fluentd plugins within this directory
