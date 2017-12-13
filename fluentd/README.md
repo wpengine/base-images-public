@@ -7,6 +7,8 @@ A fluentd image based on fluent's official onbuild images. Includes additional f
 * [fluent-plugin-formatter_sprintf](https://github.com/toyama0919/fluent-plugin-formatter_sprintf)
 * [fluent-plugin-bigquery](https://github.com/kaizenplatform/fluent-plugin-bigquery)
 
+The base image Dockerfile can be viewed at: https://github.com/fluent/fluentd-docker-image/tree/master/v1.0/alpine-onbuild
+
 ## How to use this image
 
 Example run command:
