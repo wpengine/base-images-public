@@ -68,9 +68,8 @@ generate_cover_data() {
 
     # If there were tests, pipe that output into the junit-formatter for jenkins
     if [ -f $artifacts_test_dir/temp-$f.out ]; then
-
       cat $artifacts_test_dir/temp-$f.out | go run $go_junit_report/go-junit-report.go \
-      $go_junit_report/go-junit-formatter.go > $artifacts_test_dir/$f-report.xml
+      $go_junit_report/formatter/formatter.go > $artifacts_test_dir/$f-report.xml
     fi
   done
 
