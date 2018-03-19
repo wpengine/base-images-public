@@ -70,7 +70,7 @@ generate_cover_data() {
     if [ -f $artifacts_test_dir/temp-$f.out ]; then
 
       cat $artifacts_test_dir/temp-$f.out | go run $go_junit_report/go-junit-report.go \
-      $go_junit_report/junit-formatter.go > $artifacts_test_dir/$f-report.xml
+      $go_junit_report/go-junit-formatter.go > $artifacts_test_dir/$f-report.xml
     fi
   done
 
