@@ -1,4 +1,4 @@
-FROM golang:1.9
+FROM golang:1.10
 
 RUN set -ex; \
     go get -u -v -t \
