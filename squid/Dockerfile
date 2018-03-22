@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-MAINTAINER thomas.brezinski@wpengine.com
 
 ENV SQUID_CACHE_DIR=/var/spool/squid \
     SQUID_LOG_DIR=/var/log/squid \
