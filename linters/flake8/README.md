@@ -16,4 +16,9 @@ docker run --rm -v `pwd`:/workspace wpengine/flake8 /workspace
 configuration
 =============
 
-The .flake8 configuration file in the target lint directory should override flake8's default settings.
+There is an included flake8 file that enforces some sane defaults for django projects. If you would like to
+override the configuration, you must mount your flake8 file over the system one.
+
+```
+docker run --rm -v `pwd`:/workspace -v /full/path/to/.flake8:/.flake8 wpengine/flake8 /workspace
+```
