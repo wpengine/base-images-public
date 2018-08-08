@@ -2,8 +2,8 @@
 max-line-length = 120
 max-complexity = 10
 exclude =
-    config/settings/*.py,
-    apps/*/migrations/*.py,
-    manage.py
+    /workspace/**/config/settings/*.py,
+    /workspace/**/apps/*/migrations/*.py,
+    /workspace/**/manage.py
 
 statistics = True
