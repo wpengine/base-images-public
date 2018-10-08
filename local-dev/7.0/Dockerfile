@@ -1,6 +1,6 @@
 # Need to alias this since it contains an arg.
-FROM wordpress:cli-php${PHP_VERSION} as wpcli
-FROM wpengine/php:${PHP_VERSION}
+FROM wordpress:cli-php7.0 as wpcli
+FROM wpengine/php:7.0
 
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
@@ -13,12 +13,9 @@ RUN apt-get update && apt-get install -y \
   wget \
   zip
 
-# Node and PHP versions
-ENV PHP_VERSION 7.0
+# nvm environment variables
 ENV NODE_VERSION 10.11.0
 ENV NVM_VERSION 0.33.11
-
-# nvm environment variables
 ENV NVM_DIR /usr/local/nvm
 
 # Install nvm
