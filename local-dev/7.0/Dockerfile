@@ -1,5 +1,5 @@
-ARG PHP_USER_GROUP
-ARG PHP_USER_ID
+ARG PHP_USER_GROUP=33
+ARG PHP_USER_ID=33
 
 FROM wordpress:cli-php7.0 as wpcli
 FROM wpengine/php:7.0
