@@ -1,4 +1,6 @@
-# Need to alias this since it contains an arg.
+ARG PHP_USER_GROUP
+ARG PHP_USER_ID
+
 FROM wordpress:cli-php7.2 as wpcli
 FROM wpengine/php:7.2
 
@@ -12,6 +14,10 @@ RUN apt-get update && apt-get install -y \
   vim \
   wget \
   zip
+
+# set the php user so the entrypoint script can get it.
+ENV PHP_USER_GROUP ${PHP_USER_GROUP}
+ENV PHP_USER_ID ${PHP_USER_ID}
 
 # nvm environment variables
 ENV NODE_VERSION 10.11.0
