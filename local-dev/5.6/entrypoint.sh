@@ -2,11 +2,13 @@
 set -euo pipefail
 
 # set the host user as the PHP user to avoid issues.
-userdel -f www-data &&\
-    if getent group www-data ; then groupdel www-data; fi &&\
-    groupadd -g $PHP_USER_GROUP www-data &&\
-    useradd -l -u $PHP_USER_ID -g www-data www-data &&\
-    install -d -m 0755 -o www-data -g www-data /home/www-data
+if [ $DOCKER_HOST_OS = "linux" ]; then
+  userdel -f www-data &&\
+      if getent group www-data ; then groupdel www-data; fi &&\
+      groupadd -g $PHP_USER_GROUP www-data &&\
+      useradd -l -u $PHP_USER_ID -g www-data www-data &&\
+      install -d -m 0755 -o www-data -g www-data /home/www-data;
+fi
 
 while [ ! -f /tmp/mitmproxy/mitmproxy-ca.pem ]
 do
