@@ -17,4 +17,4 @@ COPY ./composer.json /composer/
 RUN composer install -d "/composer"
 
 WORKDIR /workspace
-ENTRYPOINT ["/composer/vendor/bin/phpcs", "-s", "."]
+ENTRYPOINT ["/composer/vendor/bin/phpcs", "-s"]
