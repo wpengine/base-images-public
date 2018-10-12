@@ -27,6 +27,9 @@ RUN apt-get update && apt-get install -y \
   mysql-client \
   unzip \
   wget \
+  zip \
+  subversion \
+  vim \
   zip
 
 # Install nvm
