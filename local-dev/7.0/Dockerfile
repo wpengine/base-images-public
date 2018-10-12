@@ -2,19 +2,8 @@ ARG PHP_USER_GROUP=33
 ARG PHP_USER_ID=33
 ARG DOCKER_HOST_OS
 
-FROM wordpress:cli-php7.0 as wpcli
 FROM wpengine/php:7.0
-
-RUN apt-get update && apt-get install -y \
-  apt-transport-https \
-  git \
-  gnupg \
-  mysql-client \
-  subversion \
-  unzip \
-  vim \
-  wget \
-  zip
+LABEL maintainer="chris.wiegman@wpengine.com"
 
 # set the php user so the entrypoint script can get it.
 ENV PHP_USER_GROUP ${PHP_USER_GROUP}
@@ -22,9 +11,18 @@ ENV PHP_USER_ID ${PHP_USER_ID}
 ENV DOCKER_HOST_OS ${DOCKER_HOST_OS}
 
 # nvm environment variables
-ENV NODE_VERSION 10.11.0
+ENV NODE_VERSION 10.12.0
 ENV NVM_VERSION 0.33.11
 ENV NVM_DIR /usr/local/nvm
+
+RUN apt-get update && apt-get install -y \
+  apt-transport-https \
+  git \
+  gnupg \
+  mysql-client \
+  unzip \
+  wget \
+  zip
 
 # Install nvm
 # https://github.com/creationix/nvm#install-script
@@ -47,6 +45,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 # Remove cmdtest which conflicts with Yarn.
 RUN apt-get remove cmdtest
+
 # Now install Yarn!
 RUN apt-get update && apt-get install -y yarn
 
@@ -59,9 +58,18 @@ RUN yarn global add \
 RUN echo "log_errors = On\nerror_log = /dev/stderr" > /usr/local/etc/php/php.ini
 
 # Install composer.
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN rm composer-setup.php
 
 # Install WP-CLI
-COPY --from=wpcli /usr/local/bin/wp /usr/local/bin/wp
+RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+
+# Let's do a little cleanup
+RUN apt-get purge -y libz-dev libc6-dev build-essential
+RUN apt-get autoremove --purge -y
+RUN apt-get clean
 
 COPY ./entrypoint.sh /
