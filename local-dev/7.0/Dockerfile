@@ -10,6 +10,18 @@ ENV PHP_USER_GROUP ${PHP_USER_GROUP}
 ENV PHP_USER_ID ${PHP_USER_ID}
 ENV DOCKER_HOST_OS ${DOCKER_HOST_OS}
 
+# Install XDebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+ADD xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+ADD xdebug-listen-on.sh /usr/local/bin/xlon.sh
+RUN chmod +x /usr/local/bin/xlon.sh
+
+ADD xdebug-listen-off.sh /usr/local/bin/xloff.sh
+RUN chmod +x /usr/local/bin/xloff.sh
+
 # Install PHPUnit
 RUN curl -L phpunit https://phar.phpunit.de/phpunit-6.phar > /tmp/phpunit.phar \
     && chmod +x /tmp/phpunit.phar \
