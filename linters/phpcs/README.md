@@ -35,5 +35,5 @@ docker run --rm -v `pwd`:/workspace wpengine/phpcs /workspace --standard=./phpcs
 Automatically fix some sniff violations:
 
 ```
-docker run --rm -v `pwd`:/workspace --entrypoint "/composer/vendor/bin/phpcbf" phpcs /workspace --standard=PSR2
+docker run --rm -v `pwd`:/workspace --entrypoint "/composer/vendor/bin/phpcbf" wpengine/phpcs /workspace --standard=PSR2
 ```
