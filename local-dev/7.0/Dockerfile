@@ -1,6 +1,7 @@
 ARG PHP_USER_GROUP=33
 ARG PHP_USER_ID=33
 ARG DOCKER_HOST_OS
+ARG XDEBUG_HOST
 
 FROM wpengine/php:7.0
 LABEL maintainer="chris.wiegman@wpengine.com"
@@ -9,6 +10,7 @@ LABEL maintainer="chris.wiegman@wpengine.com"
 ENV PHP_USER_GROUP ${PHP_USER_GROUP}
 ENV PHP_USER_ID ${PHP_USER_ID}
 ENV DOCKER_HOST_OS ${DOCKER_HOST_OS}
+ENV XDEBUG_HOST ${XDEBUG_HOST}
 
 # Install XDebug
 RUN pecl install xdebug \
