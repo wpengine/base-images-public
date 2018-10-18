@@ -21,4 +21,6 @@ mkdir -p /usr/local/share/ca-certificates/mitmproxy
 cp -f /tmp/mitmproxy/mitmproxy-ca.pem /usr/local/share/ca-certificates/mitmproxy/mitmproxy-ca.crt
 update-ca-certificates
 
+sed -i "s/xdebug\.remote_host\=.*/xdebug\.remote_host\=$XDEBUG_HOST/g" /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 exec "$@"
