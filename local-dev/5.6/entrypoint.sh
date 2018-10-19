@@ -8,6 +8,7 @@ if [ $DOCKER_HOST_OS = "linux" ]; then
       groupadd -g $PHP_USER_GROUP www-data &&\
       useradd -l -u $PHP_USER_ID -g www-data www-data &&\
       install -d -m 0755 -o www-data -g www-data /home/www-data;
+      chown -R www-data:www-data /data
 fi
 
 while [ ! -f /tmp/mitmproxy/mitmproxy-ca.pem ]
