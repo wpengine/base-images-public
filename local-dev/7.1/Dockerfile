@@ -14,6 +14,9 @@ ENV XDEBUG_HOST ${XDEBUG_HOST}
 ENV IS_WPE_LOCAL_DEV true
 ENV WPE_API_KEY ${WPE_API_KEY}
 
+# Disable uopz extension. See https://core.trac.wordpress.org/ticket/44979 for details.
+RUN sed -i '/extension=uopz.so/d' /usr/local/etc/php/conf.d/pecl.ini
+
 # Install XDebug
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
