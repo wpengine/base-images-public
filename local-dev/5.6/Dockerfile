@@ -11,6 +11,8 @@ ENV PHP_USER_GROUP ${PHP_USER_GROUP}
 ENV PHP_USER_ID ${PHP_USER_ID}
 ENV DOCKER_HOST_OS ${DOCKER_HOST_OS}
 ENV XDEBUG_HOST ${XDEBUG_HOST}
+ENV IS_WPE_LOCAL_DEV true
+ENV WPE_API_KEY ${WPE_API_KEY}
 
 # Install XDebug
 RUN pecl install xdebug-2.5.5 \
@@ -30,7 +32,7 @@ RUN curl -L phpunit https://phar.phpunit.de/phpunit-5.phar > /tmp/phpunit.phar \
     && mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
 # nvm environment variables
-ENV NODE_VERSION 11.0.0
+ENV NODE_VERSION 11.1.0
 ENV NVM_VERSION 0.33.11
 ENV NVM_DIR /usr/local/nvm
 
