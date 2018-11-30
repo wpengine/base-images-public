@@ -6,7 +6,7 @@ RUN apk add --update --virtual .build-deps \
         fluent-plugin-record-modifier \
         fluent-plugin-secure-forward \
         fluent-plugin-formatter_sprintf \
-        fluent-plugin-bigquery \
+        fluent-plugin-bigquery:1.2.0 \
  && sudo gem sources --clear-all \
  && apk del .build-deps \
  && rm -rf /var/cache/apk/* \
