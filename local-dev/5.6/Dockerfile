@@ -26,13 +26,19 @@ RUN chmod +x /usr/local/bin/xlon.sh
 ADD xdebug-listen-off.sh /usr/local/bin/xloff.sh
 RUN chmod +x /usr/local/bin/xloff.sh
 
+ADD xdebug-on.sh /usr/local/bin/xdebugon.sh
+RUN chmod +x /usr/local/bin/xdebugon.sh
+
+ADD xdebug-off.sh /usr/local/bin/xdebugoff.sh
+RUN chmod +x /usr/local/bin/xdebugoff.sh
+
 # Install PHPUnit
 RUN curl -L phpunit https://phar.phpunit.de/phpunit-5.phar > /tmp/phpunit.phar \
     && chmod +x /tmp/phpunit.phar \
     && mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
 # nvm environment variables
-ENV NODE_VERSION 11.1.0
+ENV NODE_VERSION 11.3.0
 ENV NVM_VERSION 0.33.11
 ENV NVM_DIR /usr/local/nvm
 
