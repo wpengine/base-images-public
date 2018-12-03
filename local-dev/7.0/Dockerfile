@@ -26,6 +26,12 @@ RUN chmod +x /usr/local/bin/xlon.sh
 ADD xdebug-listen-off.sh /usr/local/bin/xloff.sh
 RUN chmod +x /usr/local/bin/xloff.sh
 
+ADD xdebug-on.sh /usr/local/bin/xdebugon.sh
+RUN chmod +x /usr/local/bin/xdebugon.sh
+
+ADD xdebug-off.sh /usr/local/bin/xdebugoff.sh
+RUN chmod +x /usr/local/bin/xdebugoff.sh
+
 # Install PHPUnit
 RUN curl -L phpunit https://phar.phpunit.de/phpunit-6.phar > /tmp/phpunit.phar \
     && chmod +x /tmp/phpunit.phar \
