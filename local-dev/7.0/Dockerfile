@@ -38,7 +38,7 @@ RUN curl -L phpunit https://phar.phpunit.de/phpunit-6.phar > /tmp/phpunit.phar \
     && mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
 # nvm environment variables
-ENV NODE_VERSION 11.3.0
+ENV NODE_VERSION 11.5.0
 ENV NVM_VERSION 0.33.11
 ENV NVM_DIR /usr/local/nvm
 
