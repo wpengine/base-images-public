@@ -2,6 +2,7 @@ ARG PHP_USER_GROUP=33
 ARG PHP_USER_ID=33
 ARG DOCKER_HOST_OS
 ARG XDEBUG_HOST
+ARG WPE_TOP_LEVEL_DOMAIN
 
 FROM wpengine/php:7.0
 LABEL maintainer="chris.wiegman@wpengine.com"
@@ -13,6 +14,7 @@ ENV DOCKER_HOST_OS ${DOCKER_HOST_OS}
 ENV XDEBUG_HOST ${XDEBUG_HOST}
 ENV IS_WPE_LOCAL_DEV true
 ENV WPE_API_KEY ${WPE_API_KEY}
+ENV WPE_TOP_LEVEL_DOMAIN ${WPE_TOP_LEVEL_DOMAIN}
 
 # Install XDebug
 RUN pecl install xdebug \
@@ -38,8 +40,8 @@ RUN curl -L phpunit https://phar.phpunit.de/phpunit-6.phar > /tmp/phpunit.phar \
     && mv /tmp/phpunit.phar /usr/local/bin/phpunit
 
 # nvm environment variables
-ENV NODE_VERSION 11.5.0
-ENV NVM_VERSION 0.33.11
+ENV NODE_VERSION 11.6.0
+ENV NVM_VERSION 0.34.0
 ENV NVM_DIR /usr/local/nvm
 
 RUN apt-get update && apt-get install -y \
