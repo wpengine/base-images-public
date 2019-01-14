@@ -2,6 +2,7 @@ ARG PHP_USER_GROUP=33
 ARG PHP_USER_ID=33
 ARG DOCKER_HOST_OS
 ARG XDEBUG_HOST
+ARG WPE_TOP_LEVEL_DOMAIN
 
 FROM wpengine/php:7.2
 LABEL maintainer="chris.wiegman@wpengine.com"
@@ -13,6 +14,7 @@ ENV DOCKER_HOST_OS ${DOCKER_HOST_OS}
 ENV XDEBUG_HOST ${XDEBUG_HOST}
 ENV IS_WPE_LOCAL_DEV true
 ENV WPE_API_KEY ${WPE_API_KEY}
+ENV WPE_TOP_LEVEL_DOMAIN ${WPE_TOP_LEVEL_DOMAIN}
 
 # Disable uopz extension. See https://core.trac.wordpress.org/ticket/44979 for details.
 RUN sed -i '/extension=uopz.so/d' /usr/local/etc/php/conf.d/pecl.ini
