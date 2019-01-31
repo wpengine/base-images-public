@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  app:
+    build: .
+    volumes:
+    - ./artifacts:/app/artifacts
+    - ${XML_ROOT}:/xmlroot
+    environment:
+      REDIS_NAMESPACE: ${REDIS_NAMESPACE}
+      APIGEE_ENV: ${APIGEE_ENV}
+      APIGEE_ORG: ${APIGEE_ORG}
+      APIGEE_USERNAME: ${APIGEE_USERNAME}
+      APIGEE_PASSWORD: ${APIGEE_PASSWORD}
+
