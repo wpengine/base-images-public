@@ -5,6 +5,9 @@ Docker image used to run unit tests on Apigee proxies
 To use this image your tests should be mounted into /code/src using this folder structure
 ```
 src  
+.
+.
+.
 └───<insert code to be tested here>
 │   
 └───tests
@@ -14,7 +17,7 @@ src
 
 ## Test filename naming convention
 
-All units tests filenames should be named: \<test description\>.test.js 
+All units test filenames should be named: \<test description\>.test.js 
 
 ## Building the container
 ```
