@@ -17,7 +17,7 @@ src
 
 ## Test filename naming convention
 
-All units test filenames should be named: \<test description\>.test.js 
+All units test filenames should be named: \<file_under_test\>.test.js 
 
 ## Building the container
 ```
