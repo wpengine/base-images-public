@@ -5,4 +5,5 @@ ARG VERSION=1.0.0
 WORKDIR /code/src
 COPY package.json .
 COPY package-lock.json .
+COPY test.sh ./bin
 RUN npm install

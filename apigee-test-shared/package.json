@@ -10,7 +10,7 @@
     "sinon": "7.2.3"
   },
   "scripts": {
-    "test": "mocha --recursive tests"
+    "test": "nyc --all --reporter=html --reporter=text mocha --recursive tests"
   },
   "repository": {
     "type": "git",
