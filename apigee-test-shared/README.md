@@ -21,5 +21,5 @@ All units test filenames should be named: \<test description\>.test.js
 
 ## Building the container
 ```
-docker run --rm -v ${PWD}/src/tests:/code/src/tests -v ${PWD}/src/codeToTest:/code/src/codeToTest apigee-test-shared  ./code/src/bin/test.sh
+docker run --rm -v ${PWD}/src/tests:/code/src/tests -v ${PWD}/src/codeToTest:/code/src/codeToTest apigee-test-shared  -ci  './code/src/bin/test.sh'
 ```
