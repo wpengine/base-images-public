@@ -20,9 +20,9 @@ RUN apt-get update \
 # Ensure latest pip version
 RUN pip install --upgrade pip
 
-ENV ANSIBLE_VERSION=2.2.3.0
-ENV ANSIBLE_LINT_VERSION=3.4.16
-ENV TESTINFRA_VERSION=1.8.0
+ENV ANSIBLE_VERSION=2.7.9
+ENV ANSIBLE_LINT_VERSION=4.1.0
+ENV TESTINFRA_VERSION=2.0.0
 
 # Install Ansible
 RUN pip install ansible==${ANSIBLE_VERSION}
