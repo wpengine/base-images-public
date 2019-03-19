@@ -2,7 +2,7 @@
 
 [![Docker Automated build](https://img.shields.io/docker/automated/wpengine/ansible.svg?maxAge=2592000)](https://hub.docker.com/r/wpengine/ansible/)
 
-Ubuntu 18.04 LTS (Xenial) Docker container for Ansible playbook and role testing. Also includes the ansible-lint, testinfra, and molecule python modules.
+Ubuntu 18.04 LTS (Bionic) Docker container for Ansible playbook and role testing. Also includes the ansible-lint, testinfra, and molecule python modules.
 
 ## Usage
 
