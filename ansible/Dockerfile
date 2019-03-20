@@ -15,6 +15,7 @@ RUN apt update \
     && apt install -y --no-install-recommends \
        apt-utils \
        build-essential \
+       cowsay \
        docker-ce \
        python-dev \
        python-setuptools \
