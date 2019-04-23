@@ -1,4 +1,4 @@
-FROM ruby:2.4.2
+FROM ruby:2.4.6-stretch
 RUN gem install fpm
 WORKDIR /workspace
 ENTRYPOINT ["fpm"]
