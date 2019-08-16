@@ -1,4 +1,4 @@
-FROM golang:1.11
+FROM golang:1.12.8
 
 RUN set -ex; \
     apt-get update && apt-get install -y --no-install-recommends \
