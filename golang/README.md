@@ -6,9 +6,9 @@ Golang base image with additional tools for development.
 
 This image is bound by the following tagging scheme to support existing applications:
 ```
-wpengine/golang:<major-golang-version>-wpe<internal-tooling-version>
+wpengine/golang:<major-golang-version>-wpe<toolset-version>
 ```
-where `<major-golang-version>` might be Go version `1.12` and `<internal-tooling-version>` would be an integer that is incremented (independently of the major Golang version) when any bundled tools are modified in a non-backwards-compatible fashion. This enables major golang versions to be updated, while preserving the versioning of our internal tooling.
+where `<major-golang-version>` might be Go version `1.12` and `<toolset-version>` would be an integer that is incremented (independently of the major Golang version) when any bundled tools are modified in a non-backwards-compatible fashion. This enables major golang versions to be updated, while preserving the versioning of our tooling dependencies.
 
 ## Usage
 
@@ -26,7 +26,7 @@ Run unit tests:
 docker run --rm \
   -v $(pwd):/go/src/${package_name} \
   wpengine/golang
-  /bin/bash unit_tests.sh -p ${package_name}
+  bash -c "unit_tests.sh -p ${package_name}"
 ```
 
 Installing dependencies:
@@ -35,15 +35,15 @@ docker run --rm  \
   -v $(pwd):/go/src/${package_name} \
   -w /go/src/${package_name} \
   wpengine/golang
-  sh -c "git config --global url.'https://$(GITHUB_TOKEN):x-oauth-basic@github.com/'.insteadOf 'https://github.com/' \
+  bash -c "git config --global url.'https://$(GITHUB_TOKEN):x-oauth-basic@github.com/'.insteadOf 'https://github.com/' \
   && go mod vendor"
 ```
 
 ## Changelog
-This changelog describes changes made specifically to the `<internal-tooling-version>`.
+This changelog describes changes made specifically to the `<toolset-version>` described above.
 
 ### \<version\>-wpe0
-This is the first version utilizing the tagging scheme described above. This version contains `protobuf-compiler` and the following Go tools:
+This version contains `protobuf-compiler` and the following Go tools:
 ```
 github.com/golang/protobuf/proto
 github.com/golang/protobuf/protoc-gen-go
