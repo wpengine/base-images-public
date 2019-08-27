@@ -41,7 +41,7 @@ docker run --rm --volume `pwd`/artifacts:/go/src/$(package_name)/artifacts wpeng
 
 ```
 
-Installing dependencies:
+Install dependencies:
 ```
 docker run --rm  \
   -v $(pwd):/go/src/${package_name} \
