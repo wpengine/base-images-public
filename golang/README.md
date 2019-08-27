@@ -4,7 +4,7 @@ Golang base image with additional tools for development.
 
 ## Versions
 
-This image is bound by the following tagging scheme to support existing applications:
+This image is versioned by the following tagging scheme to support existing applications:
 ```
 wpengine/golang:<major-golang-version>-wpe<toolset-version>
 ```
