@@ -2,6 +2,15 @@
 
 Golang base image with additional tools for development.
 
+## Tagged Versions
+
+This image is bound by the following tagging scheme to support existing applications:
+```
+wpengine/golang:<major-golang-version>-wpe<image-version>
+```
+where `<major-golang-version>` might be Go version `1.12` and `<image-version>` would be incremented if any bundled tools are modified.
+
+
 ## Usage
 
 Lint files:
