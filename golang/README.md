@@ -8,7 +8,7 @@ This image is bound by the following tagging scheme to support existing applicat
 ```
 wpengine/golang:<major-golang-version>-wpe<image-version>
 ```
-where `<major-golang-version>` might be Go version `1.12` and `<image-version>` would be incremented if any bundled tools are modified.
+where `<major-golang-version>` might be Go version `1.12` and `<image-version>` would be an integer that is incremented when any bundled tools are modified in a non-backwards-compatible fashion.
 
 
 ## Usage
