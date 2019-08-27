@@ -26,7 +26,19 @@ Run unit tests:
 docker run --rm \
   -v $(pwd):/go/src/${package_name} \
   wpengine/golang
-  bash -c "unit_tests.sh -p ${package_name}"
+  bash -c "gocov test ./... | gocov report"
+```
+
+Run unit tests with coverage:
+```
+mkdir -p ./artifacts/
+docker run --rm --volume `pwd`/artifacts:/go/src/$(package_name)/artifacts wpengine/golang \
+  bash -c "go test ./... -coverprofile=artifacts/coverage.out -v 2>&1 | tee artifacts/test-results.out"
+docker run --rm --volume `pwd`/artifacts:/go/src/$(package_name)/artifacts wpengine/golang \
+  bash -c "cat artifacts/test-results.out | go-junit-report -set-exit-code > artifacts/junit.xml"
+docker run --rm --volume `pwd`/artifacts:/go/src/$(package_name)/artifacts wpengine/golang \
+  bash -c "gocov convert ./artifacts/coverage.out | gocov-xml > ./artifacts/coverage.xml"
+
 ```
 
 Installing dependencies:
