@@ -1,7 +1,7 @@
 FROM google/cloud-sdk
 
-ENV TERRAFORM_VERSION=0.12.14
-ENV TERRAFORM_SHA256SUM=8db6b396eb2626f18bf5e98af824645bb96d8290e2ab761b2dace3a2574b8cee
+ENV TERRAFORM_VERSION=0.12.21
+ENV TERRAFORM_SHA256SUM=ca0d0796c79d14ee73a3d45649dab5e531f0768ee98da71b31e423e3278e9aa9
 ENV TERRAFORM_URL=https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y unzip jq
