@@ -1,6 +1,7 @@
-FROM python:3.5
+FROM ubuntu:focal
 
-RUN pip install \
+RUN apt update && apt install python3-pip -y
+RUN pip3 install \
   docutils \
   flake8 \
   nose \

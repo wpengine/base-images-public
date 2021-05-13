@@ -2,8 +2,8 @@
 
 Python image to lint, test, and build python packages.
 
-Uses the `python:3.5` image which also includes python 2.7
-for ease of testing both versions.
+Uses the `ubuntu:focal` image and installs python3-pip which
+is currently python 3.8.5
 
 ## Includes
 
