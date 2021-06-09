@@ -10,7 +10,6 @@ RUN chmod 0444 \
 		/usr/share/keyrings/cloud.google.gpg \
 	&& apt update \
 	&& DEBIAN_FRONTEND=noninteractive apt install -y \
-		curl \
 		docker.io \
 		google-cloud-sdk \
 		python3-pip \
