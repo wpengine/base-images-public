@@ -1,5 +1,4 @@
-FROM ubuntu:18.04 AS compile-image
-
+FROM ubuntu:18.04
 
 ENV PATH="/opt/pyenv/bin:/opt/pyenv/shims:$PATH"
 ENV PYENV_ROOT="/opt/pyenv"
