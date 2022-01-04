@@ -1,0 +1,10 @@
+collections:
+  - name: ansible.netcommon
+  - name: ansible.posix
+  - name: community.aws
+  - name: community.crypto
+  - name: community.docker
+  - name: community.general
+  - name: community.mongodb
+  - name: community.mysql
+  - name: gluster.gluster
