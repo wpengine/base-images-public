@@ -8,7 +8,7 @@ Also it can be used at the Python (here it is called dyton as Docker + Python) i
 To generate shims you have to run
 
 ```
-docker run --rm -it -v `pwd`:/host -v /opt:/opt --workdir /host truesysadmin/docksible bash /root/make_dython_shims.sh
+docker run --rm -it -v `pwd`:/host -v /opt:/opt --workdir /host wpengine/docksible bash /root/make_dython_shims.sh
 ```
 
 This will create needed wrappers in `/opt/dyton` folder.
@@ -19,3 +19,21 @@ Add this one to PATH
 export PATH=/opt/dyton:$PATH
 ```
 
+So every python script that has shebang
+
+```
+#!/usr/bin/env python3
+```
+or
+
+```
+#!/usr/bin/env python
+```
+
+Will be interpreted with Python in Docker as it will with Python installed locally.
+
+
+
+# Limitations
+
+It is not suitable for `local` connection type in Ansible.
