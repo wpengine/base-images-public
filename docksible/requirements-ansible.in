@@ -22,6 +22,7 @@ ipaddr
 Jinja2
 MarkupSafe
 mock
+molecule
 moto
 netaddr
 packaging
