@@ -17,7 +17,7 @@ RUN set -ex; \
     go get -u -v -t \
         github.com/jstemmer/go-junit-report \
         github.com/axw/gocov/gocov \
-        github.com/matm/gocov-html \
+        github.com/matm/gocov-html/cmd/gocov-html@latest \
         github.com/AlekSi/gocov-xml \
         github.com/golangci/golangci-lint/cmd/golangci-lint \
     ; \
