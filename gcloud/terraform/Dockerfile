@@ -5,6 +5,7 @@ ENV ARCH=amd64
 ENV TERRAFORM_VERSION=0.12.31
 ENV TERRAFORM_SHA256SUM=e5eeba803bc7d8d0cae7ef04ba7c3541c0abd8f9e934a5e3297bf738b31c5c6d
 ENV TERRAFORM_URL=https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_${OS}_${ARCH}.zip
+ENV USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y unzip jq
 
