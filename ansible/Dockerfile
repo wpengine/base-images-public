@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM gcr.io/wpe-cr/ubuntu_bionic_golden_base:latest
 
 ENV ANSIBLE_VERSION=2.7.9
 ENV ANSIBLE_LINT_VERSION=4.1.0
